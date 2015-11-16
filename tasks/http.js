@@ -64,6 +64,10 @@ module.exports = function (grunt) {
         formCallback = typeof options.form === 'function' ? options.form : null,
         callback = options.callback,
         files = [];
+        
+    if (typeof options.url == 'function') {
+      options.url = options.url();
+    }
 
     sourcePath.forEach(function (key) {
       sourceObj = sourceObj[key];
